@@ -2,23 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-    public function show($post)
+    public function show($slug)
     {
-       $posts = [
-           'my-first-post' => 'This is my first post',
-           'my-second-post'=> 'This is my second post',
-       ];
-
-       if(!array_key_exists($post,$posts)){
-           abort(404);
-       }
-
        return view('posts',[
-           'post' => $posts[$post],
+           'post' => Post::where('slug',$slug)->firstOrFail(),
        ]);
     }
 }

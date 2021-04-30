@@ -31,4 +31,4 @@ use Illuminate\Support\Facades\Route;
     ]);
 }); */
 
-Route::get('/posts/{post}',[PostController::class,'show'])->name('posts');
+Route::get('/posts/{slug}',[PostController::class,'show'])->name('posts');
