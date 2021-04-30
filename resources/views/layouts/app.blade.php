@@ -15,20 +15,20 @@
             <img src="images/logo.jpg" alt="">
         </a>
         <ul id="navigation">
-            <li class="selected">
+            <li class="{{ Request::path() === '/' ? 'selected': null }}">
                 <a href="/">home</a>
             </li>
-            <li>
+            <li class="{{ Request::path() === 'about'? 'selected':null }}">
                 <a href="/about">about</a>
             </li>
-            <li>
-                <a href="gallery.html">gallery</a>
+            <li class="{{ Request::path() === 'gallary' ? 'selected':null }}">
+                <a href="/gallary">gallery</a>
             </li>
-            <li>
-                <a href="blog.html">blog</a>
+            <li class="{{ Request::path() === 'blog'? 'selected':null }}">
+                <a href="/blog">blog</a>
             </li>
-            <li>
-                <a href="contact.html">contact</a>
+            <li class="{{ Request::path() === 'contact'? 'selected':null }}">
+                <a href="/contact">contact</a>
             </li>
         </ul>
     </div>
