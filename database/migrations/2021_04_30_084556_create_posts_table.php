@@ -17,12 +17,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('slug');
             $table->string('title');
+            $table->string('excerpt');
             $table->text('body');
-            $table->timestamp('published_at');
+            $table->string('imageUrl');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

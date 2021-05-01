@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,11 +44,24 @@ Route::get('/gallary',function(){
 });
 
 Route::get('/blog',function(){
-    return view('blog');
+    return view('blog',[
+        'posts'=> Post::take(3)->latest()->get(),
+    ]);
 });
+
+Route::get('/posts/{post:slug}',[PostController::class,'show']);
+
 
 Route::get('/contact',function(){
     return view('contact');
+});
+
+Route::get('/blog-single-post',function(){
+    return view('blog-single-post');
+});
+
+Route::get('/gallary-single-post',function(){
+    return view('gallary-single-post');
 });
 /* Route::get('/contact',function(){
     return view('contact');
