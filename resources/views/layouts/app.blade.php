@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Website Template by freewebsitetemplates.com -->
+<!--Website Template by freewebsitetemplates.com -->
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="/js/mobile.js"></script>
+    @yield('head')
 </head>
 <body>
     <div id="header">
@@ -25,7 +26,7 @@
                 <a href="/gallary">gallery</a>
             </li>
             <li class="{{ Request::path() === 'blog'? 'selected':null }}">
-                <a href="/blog">blog</a>
+                <a href="/posts">blog</a>
             </li>
             <li class="{{ Request::path() === 'contact'? 'selected':null }}">
                 <a href="/contact">contact</a>

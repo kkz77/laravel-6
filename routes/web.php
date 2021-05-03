@@ -31,6 +31,16 @@ use Illuminate\Support\Facades\Route;
         'post'=> $posts[$post],
     ]);
 }); */
+
+/*
+    //Get /videos
+    //Get /videos/create
+    //Post /videos
+    //Get /videos/2
+    //Get /videos/edit
+    //Put /videos/2
+    //Delete /videos/2
+ */
 Route::get('/',function(){
     return view('index');
 });
@@ -43,12 +53,9 @@ Route::get('/gallary',function(){
     return view('gallary');
 });
 
-Route::get('/blog',function(){
-    return view('blog',[
-        'posts'=> Post::take(3)->latest()->get(),
-    ]);
-});
-
+Route::get('/posts',[PostController::class,'index']);
+Route::post('/posts',[PostController::class,'store']);
+Route::get('/posts/create',[PostController::class,'create']);
 Route::get('/posts/{post:slug}',[PostController::class,'show']);
 
 
