@@ -36,6 +36,11 @@ class PostController extends Controller
     {
        //Persist the new resource
         $post = new Post();
+        request()->validate([
+            'title'=> 'required',
+            'excerpt'=> 'required',
+            'body'=> 'required',
+        ]);
         $post->title = request('title');
         $post->slug = Str::lower(str_replace(' ','_',request('title')));
         $post->excerpt= request('excerpt');
@@ -44,14 +49,26 @@ class PostController extends Controller
         return redirect('posts');
     }
 
-    public function edit()
+    public function edit(Post $post)
     {
        //Show a view to edit an existing resource
+        return view('posts.edit',compact('post'));
     }
 
-    public function update()
+    public function update(Post $post)
     {
        //Persist the edited resoucre
+        request()->validate([
+            'title'=> 'required',
+            'excerpt'=> 'required',
+            'body'=> 'required',
+        ]);
+        $post->title = request('title');
+        $post->slug = Str::lower(str_replace(' ','_',request('title')));
+        $post->excerpt= request('excerpt');
+        $post->body= request('body');
+        $post->save();
+        return redirect('posts');
     }
 
     public function destroy()

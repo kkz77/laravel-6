@@ -14,7 +14,7 @@
                         <p>
                             {{ $post->excerpt }}
                         </p>
-                        <a href="posts/{{ $post->slug }}" class="more">read this</a>
+                        <a href="/posts/{{ $post->slug }}" class="more">read this</a>
                     </div>
                 </li>
             @endforeach
